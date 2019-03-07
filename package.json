@@ -14,7 +14,7 @@
     "webpack:server": "webpack --config webpack.server.config.js --progress --colors",
     "server": "node local.js",
     "ssr": "npm run build:prod && npm run server",
-    "start:heroku": "node dist/server",
+    "start:heroku": "node local.js",
     "postinstall": "npm run build:ssr",
     "build:ssr": "ng build --prod && npm run webpack:server"
   },

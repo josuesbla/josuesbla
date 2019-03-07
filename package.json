@@ -8,12 +8,15 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build:server:prod": "ng run josuesbla:server && webpack --config webpack.server.config.js --progress --colors",
+    "build:server:prod": "ng run josuesbla:server && npm run webpack:server",
     "build:browser:prod": "ng build --prod",
     "build:prod": "npm run build:server:prod && npm run build:browser:prod",
+    "webpack:server": "webpack --config webpack.server.config.js --progress --colors",
     "server": "node local.js",
     "ssr": "npm run build:prod && npm run server",
-    "start:heroku": "npm run build:prod && npm run server"
+    "start:heroku": "node dist/server",
+    "postinstall": "npm run build:ssr",
+    "build:ssr": "npm run build:prod && npm run compile:server"
   },
   "private": true,
   "dependencies": {

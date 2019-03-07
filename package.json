@@ -12,7 +12,10 @@
     "build:browser:prod": "ng build --prod",
     "build:prod": "npm run build:server:prod && npm run build:browser:prod",
     "server": "node local.js",
-    "ssr": "npm run build:prod && npm run server"
+    "ssr": "npm run build:prod && npm run server",
+    "start:heroku": "node dist/server",
+    "postinstall": "npm run build:ssr",
+    "build:ssr": "npm run build:client-and-server-bundles && npm run webpack:server"
   },
   "private": true,
   "dependencies": {
